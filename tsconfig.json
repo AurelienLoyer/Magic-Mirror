@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
+    "outDir": "build/app",
     "target": "es5",
-    "module": "commonjs",
+    "module": "system",
     "moduleResolution": "node",
     "sourceMap": true,
     "emitDecoratorMetadata": true,
@@ -10,6 +11,7 @@
     "noImplicitAny": false
   },
   "exclude": [
+    "gulpfile.ts",
     "node_modules",
     "typings/main",
     "typings/main.d.ts"

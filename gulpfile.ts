@@ -1,11 +1,16 @@
-"use strict";
-
 const gulp = require("gulp");
 const del = require("del");
 const tsc = require("gulp-typescript");
 const sourcemaps = require('gulp-sourcemaps');
 const tsProject = tsc.createProject("tsconfig.json");
 const tslint = require('gulp-tslint');
+const sass = require('gulp-sass');
+const minifyCss = require('gulp-minify-css');
+
+var paths = {
+    appScss: ['src/**/*.scss', '!node_modules/**/*.*'],
+    appScss2: ['src/**/**/*.scss', '!node_modules/**/*.*']
+}
 
 /**
  * Remove build directory.
@@ -15,19 +20,10 @@ gulp.task('clean', (cb) => {
 });
 
 /**
- * Lint all custom TypeScript files.
- */
-gulp.task('tslint', () => {
-    return gulp.src("src/**/*.ts")
-        .pipe(tslint())
-        .pipe(tslint.report('prose'));
-});
-
-/**
  * Compile TypeScript sources and create sourcemaps in build directory.
  */
-gulp.task("compile", ["tslint"], () => {
-    let tsResult = gulp.src("src/**/*.ts")
+gulp.task("compile", () => {
+    var tsResult = gulp.src("src/**/*.ts")
         .pipe(sourcemaps.init())
         .pipe(tsc(tsProject));
     return tsResult.js
@@ -40,7 +36,7 @@ gulp.task("compile", ["tslint"], () => {
  */
 gulp.task("resources", () => {
     return gulp.src(["src/**/*", "!**/*.ts"])
-        .pipe(gulp.dest("build"));
+        .pipe(gulp.dest("build"))
 });
 
 /**
@@ -59,6 +55,21 @@ gulp.task("libs", () => {
         .pipe(gulp.dest("build/lib"));
 });
 
+gulp.task('styles', function() {
+    return gulp.src('src/**/*.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('./*.css'))
+});
+
+gulp.task('sass', function () {
+  gulp.src(paths.appScss)
+    .pipe(sass().on('error', sass.logError)) // this will prevent our future watch-task from crashing on sass-errors
+    //.pipe(minifyCss({compatibility: 'ie8'})) // see the gulp-sass doc for more information on compatibilitymodes
+    .pipe(gulp.dest(function(file) {
+        return file.base; // because of Angular 2's encapsulation, it's natural to save the css where the scss-file was
+    }));
+});
+
 /**
  * Watch for changes in TypeScript, HTML and CSS files.
  */
@@ -69,11 +80,15 @@ gulp.task('watch', function () {
     gulp.watch(["src/**/*.html", "src/**/*.css"], ['resources']).on('change', function (e) {
         console.log('Resource file ' + e.path + ' has been changed. Updating.');
     });
+
+    gulp.watch(paths.appScss, ['sass']); // run the sass-task any time stuff in the appScss changes
+    gulp.watch(paths.appScss2, ['sass']); // run the sass-task any time stuff in the appScss changes
+
 });
 
 /**
  * Build the project.
  */
 gulp.task("build", ['compile', 'resources', 'libs'], () => {
-    console.log("Building the project ...");
+    console.log("Building the project ...")
 });

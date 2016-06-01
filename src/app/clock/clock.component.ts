@@ -16,15 +16,15 @@ export class ClockComponent implements OnInit{
    public _mRotate: string = "1";
    public _hRotate: string = "1";
 
-  constructor() {
-  }
+   constructor() {
+   }
 
-  ngOnInit(){
+   ngOnInit(){
     console.log('ngOnInit');
     setInterval(() => {
       this.clockUpdate();
     }, 1000);
-  }
+    }
 
   clockUpdate() {
     var d = new Date();
@@ -35,5 +35,5 @@ export class ClockComponent implements OnInit{
     this._mRotate = "rotate("+minutes+"deg)";
     this._hRotate = "rotate("+hours+"deg)";
   }
-  
+
 }

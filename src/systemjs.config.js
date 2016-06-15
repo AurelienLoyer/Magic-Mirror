@@ -33,7 +33,10 @@
 
     var config = {
         map: map,
-        packages: packages
+        packages: packages,
+        typescriptOptions: {
+          emitDecoratorMetadata: true
+        },
     };
 
     // filterSystemConfig - index.html's chance to modify config before we register it.

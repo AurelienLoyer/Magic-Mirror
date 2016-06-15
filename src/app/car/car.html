@@ -1,0 +1,27 @@
+<h1>Voiture</h1>
+
+<!--
+<label for="moveCar">Déplacer la voiture</label>
+<select id="moveCar" (change)="changeState($event.target.value)">
+	<option value="garage">Garage</option>
+	<option value="moveLille">Bouge dans Lille</option>
+	<option value="moveOutside">Bouge en dehors de Lille</option>
+</select>
+-->
+
+<div class="position_info">
+	<i class="fa {{positionInfoMarker}} move_me" aria-hidden="true"></i> {{positionInfo}}
+</div>
+<google-map id="gmap" [styles]="styles" show-center-marker libraries="places" [latitude]="lat" [longitude]="lng" disable-zoom disable-default-ui [zoom]="zoom">
+	<div class="map_overlay"></div>
+	<google-map-marker id="gmapMarker" [latitude]="latCar" [longitude]="lngCar" id="google_map_marker" [icon]="carIcon"></google-map-marker>
+</google-map>
+
+<div class="last_move">
+	09/06 de 10km<br>
+	25/05 de 10km<br>
+</div>
+
+<div class="fuel_level">
+	Niveau Carburant 20 litres<br>
+</div>

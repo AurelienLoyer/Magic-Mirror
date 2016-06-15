@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {ViewEncapsulation} from '@angular/core';
 import {NgStyle} from '@angular/common';
 

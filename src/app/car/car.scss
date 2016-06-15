@@ -1,0 +1,50 @@
+car{
+  position: absolute;
+  left: 25px;
+  top: 300px;
+
+  .position_info{
+    margin-left: 5px;
+    margin-top: 10px;
+    z-index: 9999;
+    position: absolute;
+
+    i{
+      padding-right: 8px;
+    }
+    .move_me {
+      animation: mover 1s linear infinite;
+    }
+    @keyframes mover {
+      50% { transform: translate(-5px,0); }
+    }
+  }
+
+  #gmap,#map{
+    margin-top: 15px;
+    height: 19em;
+    width: 19em;
+    position: relative;
+    overflow: hidden;
+    margin-left: -40px;
+  }
+
+  .map_overlay{
+    position: absolute;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-image: url('app/assets/map_overlay.png');
+  }
+
+  .last_move{
+    display: none;
+  }
+
+  .fuel_level{
+    display: none;
+  }
+}

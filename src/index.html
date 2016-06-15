@@ -6,10 +6,13 @@
     <!-- 1. Load libraries -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css" charset="utf-8">
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.20/webcomponents.min.js"></script>
+
     <!-- Polyfill(s) for older browsers -->
     <script src="lib/es6-shim/es6-shim.min.js"></script>
 
+    <script src="https://code.angularjs.org/2.0.0-beta.0/angular2-polyfills.js"></script>
     <script src="lib/zone.js/dist/zone.js"></script>
     <script src="lib/reflect-metadata/Reflect.js"></script>
     <script src="lib/systemjs/dist/system.src.js"></script>
@@ -17,8 +20,19 @@
     <!-- 2. Configure SystemJS -->
     <script src="systemjs.config.js"></script>
     <script>
-        System.import('app').then(null, console.error.bind(console));
+      HTMLImports.whenReady(function(){
+        System.import('app').catch(console.error.bind(console));
+      });
     </script>
+
+    <script type="text/javascript">
+         var Polymer = Polymer || {};
+         Polymer.dom = 'shadow';
+    </script>
+
+    <link rel="import" href="https://cdn.rawgit.com/download/polymer-cdn/1.2.3.2/lib/google-map/google-map.html">
+    <link rel="import" href="https://cdn.rawgit.com/download/polymer-cdn/1.2.3.2/lib/google-map/google-map-marker.html">
+
 
 </head>
 

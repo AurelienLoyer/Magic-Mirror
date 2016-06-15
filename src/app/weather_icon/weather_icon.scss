@@ -1,10 +1,24 @@
 weather-icon{
+  position: fixed;
+  top: 20px;
+  left:200px;
+  display: flex;
+  align-items: center;
+
+  .weather_temp{
+    font-size: 1.2em;
+  }
+  .weather_text{
+    font-size: 1.5em;
+    color: #ea5829;
+  }
+
   .icon {
     position: relative;
     display: inline-block;
-    width: 12em;
-    height: 10em;
-    font-size: 1em; /* control icon size here */
+    width: 11em;
+    height: 8em;
+    font-size: 0.7em; /* control icon size here */
   }
 
   .cloud {
@@ -107,6 +121,9 @@ weather-icon{
     height: 3.75em;
     margin: 0.375em 0 0 -2em;
     background: currentColor;
+  }
+  .rain{
+    background: none;
   }
 
   .rain:after {

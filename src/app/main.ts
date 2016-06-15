@@ -7,4 +7,6 @@ import {WeatherComponent} from "./weather/weather.component";
 
 import {HTTP_PROVIDERS} from '@angular/http';
 
-bootstrap(AppComponent, [HTTP_PROVIDERS]);
+bootstrap(AppComponent, [
+  HTTP_PROVIDERS
+]);

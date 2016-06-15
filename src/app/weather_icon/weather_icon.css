@@ -1,11 +1,21 @@
 weather-icon {
+  position: fixed;
+  top: 20px;
+  left: 200px;
+  display: flex;
+  align-items: center;
   /* Animations */ }
+  weather-icon .weather_temp {
+    font-size: 1.2em; }
+  weather-icon .weather_text {
+    font-size: 1.5em;
+    color: #ea5829; }
   weather-icon .icon {
     position: relative;
     display: inline-block;
-    width: 12em;
-    height: 10em;
-    font-size: 1em;
+    width: 11em;
+    height: 8em;
+    font-size: 0.7em;
     /* control icon size here */ }
   weather-icon .cloud {
     position: absolute;
@@ -88,6 +98,8 @@ weather-icon {
     height: 3.75em;
     margin: 0.375em 0 0 -2em;
     background: currentColor; }
+  weather-icon .rain {
+    background: none; }
   weather-icon .rain:after {
     content: '';
     position: absolute;

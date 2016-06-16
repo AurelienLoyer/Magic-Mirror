@@ -12,19 +12,19 @@ import {NgStyle} from '@angular/common';
 
 export class ClockComponent implements OnInit{
 
-   public _sRotate: string = "1";
-   public _mRotate: string = "1";
-   public _hRotate: string = "1";
+  public _sRotate: string = "1";
+  public _mRotate: string = "1";
+  public _hRotate: string = "1";
 
-   constructor() {
-   }
+  constructor() {
+  }
 
-   ngOnInit(){
+  ngOnInit(){
     console.log('ngOnInit');
     setInterval(() => {
       this.clockUpdate();
     }, 1000);
-    }
+  }
 
   clockUpdate() {
     var d = new Date();

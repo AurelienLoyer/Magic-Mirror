@@ -1,0 +1,17 @@
+datetime {
+  position: absolute;
+  top: 60px;
+  left: 60px; }
+  datetime .time {
+    display: block;
+    font-size: 3em; }
+  datetime .date {
+    color: #ea5829;
+    font-weight: 300;
+    font-size: 1.2em; }
+  datetime .blink_me {
+    animation: blinker 1s linear infinite; }
+
+@keyframes blinker {
+  50% {
+    opacity: 0.0; } }

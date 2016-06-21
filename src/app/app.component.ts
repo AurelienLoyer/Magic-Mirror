@@ -9,6 +9,8 @@ import {CarComponent} from "./car/car.component";
 import {VlilleComponent} from "./vlille/vlille.component";
 import {DateTimeComponent} from "./datetime/datetime.component";
 import {MessageComponent} from "./message/message.component";
+import {HomeComponent} from "./home/home.component";
+import {SocialComponent} from "./social/social.component";
 
 @Component({
     selector: "app",
@@ -22,7 +24,9 @@ import {MessageComponent} from "./message/message.component";
       CarComponent,
       DateTimeComponent,
       VlilleComponent,
-      MessageComponent
+      MessageComponent,
+      HomeComponent,
+      SocialComponent
     ],
     providers: [WeatherService]
 })

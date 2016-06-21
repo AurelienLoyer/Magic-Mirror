@@ -24,9 +24,11 @@ export class CarComponent implements OnInit{
   public carIcon:string;
   public positionInfoMarker:string;
   public positionInfo:string;
+  public fuelLevel : number;
 
   constructor(public elementRef:ElementRef) {
-    console.log(elementRef);
+    this.fuelLevel = 1;
+
     this.lat = 50.631941;
     this.lng = 3.057928;
     this.latCar = 50.626301;

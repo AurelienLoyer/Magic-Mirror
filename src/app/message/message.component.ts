@@ -18,11 +18,10 @@ export class MessageComponent implements OnInit{
 
   constructor() {
     this.texte_1 = "Bonjour";
-    this.texte_2 = "Aurel & Magda";
+    this.texte_2 = "Aurélien";
   }
 
   ngOnInit(){
     console.log('Init Message');
-
   }
 }

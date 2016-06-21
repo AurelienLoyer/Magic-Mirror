@@ -1,7 +1,7 @@
 car {
   position: fixed;
-  left: 80px;
-  top: 320px; }
+  left: 60px;
+  bottom: 60px; }
   car .position_info {
     margin-left: 5px;
     margin-top: 10px;
@@ -16,6 +16,7 @@ car {
   50% {
     transform: translate(-5px, 0); } }
   car #gmap, car #map {
+    z-index: -1;
     margin-top: 15px;
     height: 19em;
     width: 19em;
@@ -31,7 +32,9 @@ car {
     height: 100%;
     background-size: cover;
     background-image: url("app/assets/map_overlay.png"); }
+  car h2 {
+    color: #ea5829;
+    font-weight: 300;
+    margin: 8px 0px; }
   car .last_move {
-    display: none; }
-  car .fuel_level {
-    display: none; }
+    margin-top: -25px; }

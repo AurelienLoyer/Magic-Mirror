@@ -1,7 +1,7 @@
 car{
   position: fixed;
-  left: 80px;
-  top: 320px;
+  left: 60px;
+  bottom: 60px;
 
   .position_info{
     margin-left: 5px;
@@ -21,6 +21,7 @@ car{
   }
 
   #gmap,#map{
+    z-index: -1;
     margin-top: 15px;
     height: 19em;
     width: 19em;
@@ -40,11 +41,16 @@ car{
     background-image: url('app/assets/map_overlay.png');
   }
 
+  h2{
+    color: #ea5829;
+    font-weight: 300;
+    margin: 8px 0px;
+  }
+
   .last_move{
-    display: none;
+    margin-top: -25px;
   }
 
   .fuel_level{
-    display: none;
   }
 }

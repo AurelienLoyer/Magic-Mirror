@@ -5,7 +5,22 @@
 
 ## Web interface for connected mirror
 
+### Build & Watch
+
+```json
+"clean": "gulp clean",
+"compile": "gulp compile",
+"build": "gulp build",
+"start": "concurrently --kill-others \"gulp watch\" \"lite-server\"",
+"postinstall": "typings install"
+```
+
+```terminal
+$ npm watch
+```
+
 ### Widgets
+
 - [x] Date time
 - [x] Weather
 - [x] Xee Car
@@ -17,15 +32,17 @@
 
 ## Hardware
 
-- Raspberry Pi
-- Motion Sensor
-- Relay
+[- Raspberry Pi]:http://amzn.to/28Q1ztX
+[- Motion Sensor]:http://amzn.to/28Q1zdA
+[- Relay]:http://amzn.to/28SjqEU
 - Monitor
+[- Mirror]:http://amzn.to/28PN0bd
 
-## Todo
+### Todo
 
 - [ ] Weather Services Ng2
 - [ ] Xee Services Ng2
 - [ ] VLille Services Ng2
+- [ ] Domoticz Services Ng2
 - [ ] News widgets
 - [ ] Hardware Motion et Relay sensor

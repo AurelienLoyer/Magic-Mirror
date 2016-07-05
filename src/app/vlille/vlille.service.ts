@@ -17,8 +17,9 @@ export class VlilleService {
     this.jsonp = jsonp;
   }
 
-  getBorneData(borne) {
-
-    return this.jsonp.request(this.api_url+'?callback=JSONP_CALLBACK&format=xml&borne='+borne, {method:'GET',dataType:'text'});
+  getBorneData(borne) : Promise<any> {
+    return this.jsonp
+      .get(this.api_url+'?callback=JSONP_CALLBACK&format=jsonp&borne='+borne)
+      .map(request => <string[]> request.json()[1]);
   }
 }

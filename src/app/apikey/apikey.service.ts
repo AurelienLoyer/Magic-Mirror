@@ -14,7 +14,7 @@ export class ApikeyService {
       weather : {
         key : 'openweathermap'
       }
-    };
+    }; 
   }
 
   getKeys(){

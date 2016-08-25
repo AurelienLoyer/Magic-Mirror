@@ -1,6 +1,6 @@
 # file
 /ideas
-
+/src/app/apikey/*
 
 # compiled output
 /build

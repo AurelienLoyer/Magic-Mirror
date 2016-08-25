@@ -19,11 +19,10 @@
 
 <div class="last_move">
 	<h2>Trajets</h2>
-	<h3><i class="fa fa-road" aria-hidden="true"></i> 09/06 de 91km</h3>
-	<h3><i class="fa fa-road" aria-hidden="true"></i> 25/05 de 3km</h3>
+	<h3 *ngFor="let trip of trips"><i class="fa fa-road" aria-hidden="true"></i>{{trip.beginDate | date }}</h3>
 </div>
 
 <div class="fuel_level">
 	<h2>Carburant</h2>
-	<h3><i class="fa fa-battery-{{fuelLevel}}" aria-hidden="true"></i> Niveau Carburant 20 litres</h3>
+	<h3><i class="fa fa-battery-{{fuelRange}}" aria-hidden="true"></i> Niveau Carburant {{fuelLevel}} litres</h3>
 </div>

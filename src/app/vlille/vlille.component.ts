@@ -3,7 +3,9 @@ import {ViewEncapsulation} from '@angular/core';
 import {NgStyle} from '@angular/common';
 import {XmlParsePipe} from '../pipes/xmlparse.pipe';
 import {VlilleService} from './vlille.service';
-import { Observable}       from 'rxjs/Observable';
+import {Observable}       from 'rxjs/Rx';
+import {Http,Headers,Jsonp} from '@angular/http';
+
 
 @Component({
     selector: "vlille",
@@ -16,15 +18,25 @@ import { Observable}       from 'rxjs/Observable';
 
 export class VlilleComponent implements OnInit{
 
-  public _sRotate: string = "1";
-  public items: Observable<any[]>;
+  public stationids : any[] = [];
+  public stations : any[] = [];
+  public http : Http;
 
   constructor(private vlilleservice: VlilleService) {
+    this.stationids = [
+      {name:'Cormontaigne',id:36},
+      {name:'Rihour',id:10}
+    ];
   }
 
   ngOnInit(){
     console.log('Init VLille');
-    //this.items = this.vlilleservice.getBorneData('36');
-    //console.log(this.items);
+    Observable
+      .from(this.stationids)
+      .flatMap((i) => this.vlilleservice.getBorneData(i))
+      .subscribe((o) => {
+        this.stations.push(o);
+      });
   }
+
 }

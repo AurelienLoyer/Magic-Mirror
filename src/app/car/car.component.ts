@@ -1,13 +1,15 @@
 import {Component, OnInit,ElementRef} from "@angular/core";
 import {ViewEncapsulation} from '@angular/core';
 import {NgStyle} from '@angular/common';
+import {CarService} from './car.service';
 
 @Component({
     selector: "car",
     encapsulation: ViewEncapsulation.None,
     templateUrl: "./app/car/car.html",
     styleUrls:["./app/car/car.css"],
-    directives: []
+    directives: [],
+    providers: [CarService]
 })
 
 export class CarComponent implements OnInit{
@@ -25,10 +27,10 @@ export class CarComponent implements OnInit{
   public positionInfoMarker:string;
   public positionInfo:string;
   public fuelLevel : number;
+  public fuelRange : number;
+  public trips : any[] = [];
 
-  constructor(public elementRef:ElementRef) {
-    this.fuelLevel = 1;
-
+  constructor(public elementRef:ElementRef,private carService : CarService) {
     this.lat = 50.631941;
     this.lng = 3.057928;
     this.latCar = 50.626301;
@@ -43,6 +45,34 @@ export class CarComponent implements OnInit{
 
   ngOnInit(){
     this.moveCar();
+    //getCarData()
+    //trips
+    //car
+
+    this.carService.getCarData('trips')
+    .map(function(res){
+      for (let i = 0; i < res.length; i++) {
+          res[i].beginDate = new Date(res[i].beginDate);
+      }
+      return res;
+    }).subscribe((o) => {
+      console.log(o);
+      this.trips = [];
+      this.trips.push(o[o.length-1]);
+      this.trips.push(o[o.length-2]);
+    });
+
+    this.carService.getCarData('car')
+    .subscribe((data) => {
+      var signals = data.signals;
+      for (let i = 0; i < signals.length; i++) {
+          if(signals[i].name === "FuelLevel"){
+            this.fuelLevel = signals[i].value;
+            this.fuelRange = Math.round(this.fuelLevel/10);
+          }
+      }
+    });
+
   }
 
   changeState(state){

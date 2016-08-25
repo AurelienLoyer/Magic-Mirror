@@ -5,6 +5,12 @@
 
 ## Web interface for connected mirror
 
+### Electron app
+
+```terminal
+$ npm run electron
+```
+
 ### Build & Watch
 
 ```json
@@ -17,6 +23,7 @@
 
 ```terminal
 $ npm watch
+$ npm build
 ```
 
 ### Widgets

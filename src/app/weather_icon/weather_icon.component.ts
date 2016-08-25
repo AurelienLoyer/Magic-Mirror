@@ -2,7 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {ViewEncapsulation} from '@angular/core';
 import {Jsonp} from '@angular/http';
 
-import {WeatherService} from '../weather/services/weather.service';
+import {WeatherService} from '../weather/weather.service';
 import {FirstLetterUpper} from '../pipes/firstletterupper.pipe';
 
 @Component({
@@ -32,7 +32,7 @@ export class WeatherIconComponent implements OnInit{
   ngOnInit(){
     console.log('ngOnInit');
     setInterval(() => {
-      this.setWeatherType('rainy');
+      this.setWeatherType("");
     }, 2000);
 
     /*this.weatherService.get().subscribe(function (res) {

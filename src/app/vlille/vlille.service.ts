@@ -8,7 +8,7 @@ export class VlilleService {
   //http://vlille.fr/stations/xml-station.aspx?borne=10 //station rihour
   //http://vlille.fr/stations/xml-station.aspx?borne=36 //station cormontaigne
 
-  public api_url : String = "http://vlille.fr/stations/xml-station.aspx";
+  public api_url : String = "http://api.aurelien-loyer.fr/vlille/station.php?key=magdalena";
   public http : any;
   public jsonp : any;
 
@@ -17,9 +17,13 @@ export class VlilleService {
     this.jsonp = jsonp;
   }
 
-  getBorneData(borne) : Promise<any> {
-    return this.jsonp
-      .get(this.api_url+'?callback=JSONP_CALLBACK&format=jsonp&borne='+borne)
-      .map(request => <string[]> request.json()[1]);
+  getBorneData(borne){
+    return this.http
+      .get(this.api_url+'&format=jsonp&json_callback=JSON_CALLBACK&borne='+borne.id)
+      .map(function(res){
+        var response = res.json();
+        response.name = borne.name;
+        return response;
+      });
   }
 }

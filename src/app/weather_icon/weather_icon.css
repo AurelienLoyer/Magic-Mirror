@@ -97,7 +97,7 @@ weather-icon {
     width: 3.75em;
     height: 3.75em;
     margin: 0.375em 0 0 -2em;
-    background: currentColor; }
+    background: transparent; }
   weather-icon .rain {
     background: none; }
   weather-icon .rain:after {

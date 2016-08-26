@@ -1,6 +1,6 @@
 # file
 /ideas
-src/app/apikey/apikey.service.ts
+/src/app/apikey/apikey.service.ts
 
 # compiled output
 /build

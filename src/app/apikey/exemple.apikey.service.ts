@@ -1,3 +1,5 @@
+//Remove exemple. in the filename :)
+
 import {Injectable} from '@angular/core';
 
 @Injectable()
@@ -9,10 +11,10 @@ export class ApikeyService {
 
     this.keys = {
       maps : {
-        key : 'askgooglemapskey'
+        key : 'YOUR_MAPS_API_KEY'
       },
       weather : {
-        key : 'openweathermap'
+        key : 'YOUR_FREE_OPENWEATHER_API_KEY'
       }
     };
   }
@@ -22,7 +24,7 @@ export class ApikeyService {
   }
 
   getKey(name){
-    return this.keys[name];
+    return this.keys[name].key;
   }
 
 }

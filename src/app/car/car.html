@@ -12,14 +12,14 @@
 <div class="position_info">
 	<i class="fa {{positionInfoMarker}} move_me" aria-hidden="true"></i> {{positionInfo}}
 </div>
-<google-map id="gmap" [styles]="styles" show-center-marker libraries="places" [latitude]="lat" [longitude]="lng" disable-zoom disable-default-ui [zoom]="zoom">
+<google-map id="gmap" api-key="{{apikey}}" [styles]="styles" show-center-marker libraries="places" [latitude]="lat" [longitude]="lng" disable-zoom disable-default-ui [zoom]="zoom">
 	<div class="map_overlay"></div>
 	<google-map-marker id="gmapMarker" [latitude]="latCar" [longitude]="lngCar" id="google_map_marker" [icon]="carIcon"></google-map-marker>
 </google-map>
 
 <div class="last_move">
 	<h2>Trajets</h2>
-	<h3 *ngFor="let trip of trips"><i class="fa fa-road" aria-hidden="true"></i>{{trip.beginDate | date }}</h3>
+	<h3 *ngFor="let trip of trips"><i class="fa fa-road" aria-hidden="true"></i> {{trip.beginDate | date }} de {{trip.distance}}km</h3>
 </div>
 
 <div class="fuel_level">

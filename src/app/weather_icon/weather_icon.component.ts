@@ -19,6 +19,7 @@ export class WeatherIconComponent implements OnInit{
   public current_weather_type : String = "";
   public weather_types : Array<Object> = [];
   public weather_object : any;
+  public weather_temp : number = 0;
 
   constructor(private weatherService: WeatherService){
     this.weather_types.push("sun-shower");
@@ -30,15 +31,17 @@ export class WeatherIconComponent implements OnInit{
   }
 
   ngOnInit(){
-    console.log('ngOnInit');
+    console.log('Init weather icon');
     setInterval(() => {
-      this.setWeatherType("");
+      //this.setWeatherType("");
     }, 2000);
 
-    /*this.weatherService.get().subscribe(function (res) {
-      this.weather_object = JSON.parse(res._body);
-      console.log(this.weather_object);
-    });*/
+    this.weatherService.getCurrent()
+    .subscribe(res => {
+      this.weather_temp = Math.round(res.main.temp);
+      this.setWeatherType(res.weather[0].main);
+      console.log(res.main.temp);
+    });
   }
 
   randomType(){

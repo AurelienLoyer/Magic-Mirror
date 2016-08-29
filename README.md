@@ -5,6 +5,13 @@
 
 ## Web interface for connected mirror
 
+### Configuration
+
+- Rename ApikeyService file (remove exemple.)
+- Replace api key
+  - [Maps]: https://console.developers.google.com/apis 
+  - [Openweathermap]: http://openweathermap.org/
+
 ### Electron app
 
 ```terminal
@@ -47,9 +54,9 @@ $ npm build
 
 ### Todo
 
-- [ ] Weather Services Ng2
-- [ ] Xee Services Ng2
-- [ ] VLille Services Ng2
+- [X] Xee Services Ng2
+- [X] VLille Services Ng2
+- [ ] Weather night icon
 - [ ] Domoticz Services Ng2
 - [ ] News widgets
 - [ ] Hardware Motion et Relay sensor

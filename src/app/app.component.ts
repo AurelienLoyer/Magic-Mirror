@@ -2,7 +2,6 @@ import {Component, OnInit,ElementRef} from '@angular/core';
 import {ViewEncapsulation} from '@angular/core';
 
 import {WeatherComponent} from './weather/weather.component';
-import {WeatherService} from './weather/services/weather.service';
 import {WeatherIconComponent} from './weather_icon/weather_icon.component';
 import {ClockComponent} from './clock/clock.component';
 import {CarComponent} from './car/car.component';
@@ -11,6 +10,8 @@ import {DateTimeComponent} from './datetime/datetime.component';
 import {MessageComponent} from './message/message.component';
 import {HomeComponent} from './home/home.component';
 import {SocialComponent} from './social/social.component';
+
+import {ApikeyService} from './apikey/apikey.service';
 
 @Component({
     selector: 'app',
@@ -28,7 +29,7 @@ import {SocialComponent} from './social/social.component';
       HomeComponent,
       SocialComponent
     ],
-    providers: [WeatherService]
+    providers: [ApikeyService]
 })
 
 export class AppComponent implements OnInit {

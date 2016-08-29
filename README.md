@@ -9,7 +9,7 @@
 
 - Rename ApikeyService file (remove exemple.)
 - Replace api key
-  - [Maps]: https://console.developers.google.com/apis 
+  - [Maps]: https://console.developers.google.com/apis
   - [Openweathermap]: http://openweathermap.org/
 
 ### Electron app
@@ -46,11 +46,11 @@ $ npm build
 
 ## Hardware
 
-[- Raspberry Pi]:http://amzn.to/28Q1ztX
-[- Motion Sensor]:http://amzn.to/28Q1zdA
-[- Relay]:http://amzn.to/28SjqEU
+- [Raspberry Pi]: http://amzn.to/28Q1ztX
+- [Motion Sensor]: http://amzn.to/28Q1zdA
+- [Relay]: http://amzn.to/28SjqEU
 - Monitor
-[- Mirror]:http://amzn.to/28PN0bd
+- [Mirror]: http://amzn.to/28PN0bd
 
 ### Todo
 

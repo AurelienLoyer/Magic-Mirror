@@ -6,12 +6,10 @@ import {Observable} from 'rxjs/Rx';
 import {ApikeyService} from './../apikey/apikey.service';
 
 @Component({
-    selector: "car",
-    encapsulation: ViewEncapsulation.None,
-    templateUrl: "./app/car/car.html",
-    styleUrls:["./app/car/car.css"],
-    directives: [],
-    providers: [CarService,ApikeyService]
+  selector: 'car',
+  encapsulation: ViewEncapsulation.None,
+  templateUrl: './car.component.html',
+  styleUrls: ['./car.component.scss']
 })
 
 export class CarComponent implements OnInit{
@@ -33,34 +31,35 @@ export class CarComponent implements OnInit{
   public trips : any[] = [];
   public apikey : String;
   public interval : number;
+  public numberOfTrips : number;
+  public engineSpeed : number = 0;
+  public positionClass : string = "";
 
-  constructor(public elementRef:ElementRef,private carService : CarService, private apikeyService : ApikeyService) {
-    this.interval = 10000; // 10 secondes
+  constructor(public elementRef:ElementRef,public carService : CarService, public apikeyService : ApikeyService) {
+    this.interval = 30000; // 30 secondes
     this.lat = 50.631941;
     this.lng = 3.057928;
     this.latCar = 50.626301;
     this.lngCar = 3.032630;
     this.zoom = 12;
     this.map = elementRef.nativeElement.querySelector("#gmap");
-    this.carIcon = "app/assets/ds3_40px.png";
+    this.carIcon = "assets/ds3_40px.png";
     this.styles = [{"featureType":"all","elementType":"labels","stylers":[{"visibility":"on"}]},{"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#000000"},{"lightness":40}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#000000"},{"lightness":16}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":17},{"weight":1.2}]},{"featureType":"administrative.country","elementType":"labels.text.fill","stylers":[{"color":"#ed5929"}]},{"featureType":"administrative.locality","elementType":"labels.text.fill","stylers":[{"color":"#c4c4c4"}]},{"featureType":"administrative.neighborhood","elementType":"labels.text.fill","stylers":[{"color":"#ed5929"}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":21},{"visibility":"on"}]},{"featureType":"poi.business","elementType":"geometry","stylers":[{"visibility":"on"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ed5929"},{"lightness":"0"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","elementType":"labels.text.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.highway","elementType":"labels.text.stroke","stylers":[{"color":"#ed5929"}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":18}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#575757"}]},{"featureType":"road.arterial","elementType":"labels.text.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.arterial","elementType":"labels.text.stroke","stylers":[{"color":"#2c2c2c"}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":16}]},{"featureType":"road.local","elementType":"labels.text.fill","stylers":[{"color":"#999999"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":19}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":17}]}];
     this.positionInfoMarker = "fa-car";//fa-map-marker
-    this.positionInfo = "La voiture est en déplacement"//La voiture est au garage
+    this.positionInfo = "La voiture est à l'arret"//La voiture est au garage
     this.apikey = apikeyService.getKey('maps');
+    this.numberOfTrips = 5;
   }
 
   ngOnInit(){
-    //this.moveCar();
-    //getCarData()
-    //trips
-    //car
+
     this.getTrips();
     this.getCardata();
 
-    /*setInterval(() => {
+    setInterval(() => {
       this.getTrips();
       this.getCardata();
-    }, this.interval);*/
+    }, this.interval);
 
   }
 
@@ -80,15 +79,22 @@ export class CarComponent implements OnInit{
     .map(function(res){
       for (let i = 0; i < res.length; i++) {
           res[i].beginDate = new Date(res[i].beginDate);
+          res[i].stopDate = new Date(res[i].stopDate);
+          var diffMins = Math.round((((res[i].stopDate - res[i].beginDate) % 86400000) % 3600000) / 60000); // minutes
+          res[i].minutes = diffMins;
           res[i].distance = 0;
       }
       return res;
     }).subscribe((o) => {
       this.trips = [];
-      this.trips.push(o[o.length-1]);
-      this.trips.push(o[o.length-2]);
+      if(this.numberOfTrips > o.length)
+        this.numberOfTrips = o.length;
+      for(let j = 1; j <= this.numberOfTrips; j++){
+        this.trips.push(o[o.length-j]);
+      }
+      console.log(this.trips);
       //on recupere les distances des trajets
-      this.getTripsDistance();
+      //this.getTripsDistance();
     });
   }
 
@@ -101,13 +107,13 @@ export class CarComponent implements OnInit{
         var signals = o;
         var min = 10000000;
         var max = 0;
-        for (let i = 0; i < signals.length; i++) {
-          if(signals[i].name === "Odometer"){
-            if(signals[i].value < min){
-              min = signals[i].value;
+        for (let k = 0; k < signals.length; k++) {
+          if(signals[k].name === "Odometer"){
+            if(signals[k].value < min){
+              min = signals[k].value;
             }
-            if(signals[i].value > max){
-              max = signals[i].value;
+            if(signals[k].value > max){
+              max = signals[k].value;
             }
           }
         }
@@ -129,6 +135,15 @@ export class CarComponent implements OnInit{
           if(signals[i].name === "FuelLevel"){
             this.fuelLevel = signals[i].value;
             this.fuelRange = Math.round(this.fuelLevel/10);
+          }else if(signals[i].name === "EngineSpeed"){
+            this.engineSpeed = signals[i].value;
+            if(this.engineSpeed > 0){
+              this.positionInfo = "La voiture est en déplacement";
+              this.positionClass = "move_me";
+            }else{
+              this.positionInfo = "La voiture est à l'arret";
+              this.positionClass = "";
+            }
           }
       }
     });

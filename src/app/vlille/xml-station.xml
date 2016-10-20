@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<station>
-  <adress>16 - 36 PLACE CORMONTAIGNE </adress>
-  <status>0</status>
-  <bikes>27</bikes>
-  <attachs>1</attachs>
-  <paiement>AVEC_TPE</paiement>
-  <lastupd>4 secondes</lastupd>
-</station>

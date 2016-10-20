@@ -3,11 +3,10 @@ import {ViewEncapsulation} from '@angular/core';
 import {NgStyle} from '@angular/common';
 
 @Component({
-    selector: "home",
-    encapsulation: ViewEncapsulation.None,
-    templateUrl: "./app/home/home.html",
-    styleUrls:["./app/home/home.css"],
-    directives: []
+  selector: 'home',
+  encapsulation: ViewEncapsulation.None,
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
 
 export class HomeComponent implements OnInit{

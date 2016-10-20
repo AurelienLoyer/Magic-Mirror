@@ -1,19 +1,13 @@
-//view-source:http://vlille.fr/stations/xml-stations.aspx
-//http://vlille.fr/stations/xml-station.aspx?borne=10 //station rihour
-//http://vlille.fr/stations/xml-station.aspx?borne=36 //station cormontaigne
-
 import {Component, OnInit,ElementRef} from "@angular/core";
 import {ViewEncapsulation} from '@angular/core';
 import {NgStyle} from '@angular/common';
 import {AddZeroPipe} from '../pipes/addzero.pipe';
 
 @Component({
-    selector: "datetime",
-    encapsulation: ViewEncapsulation.None,
-    templateUrl: "./app/datetime/datetime.html",
-    styleUrls:["./app/datetime/datetime.css"],
-    directives: [],
-    pipes:[AddZeroPipe]
+  selector: 'datetime',
+  encapsulation: ViewEncapsulation.None,
+  templateUrl: './datetime.component.html',
+  styleUrls: ['./datetime.component.scss']
 })
 
 export class DateTimeComponent implements OnInit{
@@ -39,7 +33,7 @@ export class DateTimeComponent implements OnInit{
 
   loopDate(){
     var date = new Date();
-    var tab_mois=new Array("Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre");
+    var tab_mois = new Array("Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre");
 
     this.seconds = date.getSeconds();
     this.minutes = date.getMinutes();

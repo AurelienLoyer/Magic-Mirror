@@ -1,36 +1,43 @@
 import {Component, OnInit,ElementRef} from "@angular/core";
 import {ViewEncapsulation} from '@angular/core';
-import {NgStyle} from '@angular/common';
 import {XmlParsePipe} from '../pipes/xmlparse.pipe';
 import {VlilleService} from './vlille.service';
-import {Observable}       from 'rxjs/Rx';
-import {Http,Headers,Jsonp} from '@angular/http';
-
+import {Observable} from 'rxjs/Rx';
 
 @Component({
-    selector: "vlille",
-    encapsulation: ViewEncapsulation.None,
-    templateUrl: "./app/vlille/vlille.html",
-    styleUrls:["./app/vlille/vlille.css"],
-    providers: [VlilleService],
-    pipes : [XmlParsePipe]
+  selector: 'vlille',
+  encapsulation: ViewEncapsulation.None,
+  templateUrl: './vlille.component.html',
+  styleUrls: ['./vlille.component.scss']
 })
 
 export class VlilleComponent implements OnInit{
 
   public stationids : any[] = [];
   public stations : any[] = [];
-  public http : Http;
+  public interval : number;
 
   constructor(private vlilleservice: VlilleService) {
     this.stationids = [
       {name:'Cormontaigne',id:36},
       {name:'Rihour',id:10}
     ];
+    this.interval = 30000; // secondes
   }
 
+
   ngOnInit(){
-    console.log('Init VLille');
+    console.log('ngOnInit');
+
+    this.getBornesData();
+
+    setInterval(() => {
+      this.getBornesData();
+    }, this.interval);
+  }
+
+  getBornesData(){
+    this.stations = [];
     Observable
       .from(this.stationids)
       .flatMap((i) => this.vlilleservice.getBorneData(i))

@@ -1,17 +1,14 @@
-import {Component, OnInit,ElementRef} from "@angular/core";
-import {ViewEncapsulation} from '@angular/core';
-import {NgStyle} from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { ViewEncapsulation } from '@angular/core';
 
 @Component({
-    selector: "message",
-    encapsulation: ViewEncapsulation.None,
-    templateUrl: "./app/message/message.html",
-    styleUrls:["./app/message/message.css"],
-    directives: [],
-    pipes:[]
+  selector: 'message',
+  encapsulation: ViewEncapsulation.None,
+  templateUrl: './message.component.html',
+  styleUrls: ['./message.component.scss']
 })
 
-export class MessageComponent implements OnInit{
+export class MessageComponent implements OnInit {
 
   public texte_1: string;
   public texte_2: string;
@@ -24,4 +21,5 @@ export class MessageComponent implements OnInit{
   ngOnInit(){
     console.log('Init Message');
   }
+
 }

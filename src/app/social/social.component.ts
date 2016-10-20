@@ -1,23 +1,15 @@
-import {Component, OnInit,ElementRef} from "@angular/core";
-import {ViewEncapsulation} from '@angular/core';
-import {NgStyle} from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: "social",
-    encapsulation: ViewEncapsulation.None,
-    templateUrl: "./app/social/social.html",
-    styleUrls:["./app/social/social.css"],
-    directives: []
+  selector: 'social',
+  templateUrl: './social.component.html',
+  styleUrls: ['./social.component.scss']
 })
+export class SocialComponent implements OnInit {
 
-export class SocialComponent implements OnInit{
+  constructor() { }
 
-  public _sRotate: string = "1";
-
-  constructor() {
+  ngOnInit() {
   }
 
-  ngOnInit(){
-    console.log('Init Social');
-  }
 }

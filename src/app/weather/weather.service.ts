@@ -10,13 +10,9 @@ export class WeatherService {
   public key : String = "macle";
   public key_url : String;
   public requestUrl : String;
-  public params : String = "&q=Lomme,Fr&units=metric";
-  public http : any;
-  public apikeyService : any;
+  public params : String = "&q=Lille,Fr&units=metric";
 
-  constructor(http:Http,apikeyService:ApikeyService) {
-    this.http = http;
-    this.apikeyService = apikeyService;
+  constructor(public http:Http,public apikeyService:ApikeyService) {
     this.key = this.apikeyService.getKey('weather');
     this.key_url = '?APPID='+this.key;
   }

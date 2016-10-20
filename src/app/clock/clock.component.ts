@@ -1,13 +1,11 @@
-import {Component, OnInit} from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 import {ViewEncapsulation} from '@angular/core';
-import {NgStyle} from '@angular/common';
-
 
 @Component({
-    selector: "clock",
-    encapsulation: ViewEncapsulation.None,
-    templateUrl: "./app/clock/clock.html",
-    styleUrls:["./app/clock/clock.css"]
+  selector: 'clock',
+  encapsulation: ViewEncapsulation.None,
+  templateUrl: './clock.component.html',
+  styleUrls: ['./clock.component.scss']
 })
 
 export class ClockComponent implements OnInit{

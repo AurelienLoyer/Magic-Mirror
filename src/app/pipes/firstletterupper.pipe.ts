@@ -1,12 +1,12 @@
-import {Pipe, PipeTransform} from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'firstletterupper',
   pure: true
 })
 
-export class FirstLetterUpper  implements PipeTransform{
-    transform(value:string):any {
-        return value.charAt(0).toUpperCase() + value.slice(1);
-    }
+export class FirstletterupperPipe implements PipeTransform {
+  transform(value:string):any {
+    return value.charAt(0).toUpperCase() + value.slice(1);
+  }
 }

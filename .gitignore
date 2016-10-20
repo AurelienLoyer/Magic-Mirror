@@ -1,10 +1,16 @@
-# file
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# personal file
 /ideas
 /src/app/apikey/apikey.service.ts
+/src_old
+agenda.json
 
 # compiled output
-/build
 /tmp
+aot/*
+dist/*
+/build
 
 # dependencies
 /node_modules
@@ -28,3 +34,12 @@ testem.log
 
 #System Files
 .DS_Store
+Thumbs.db
+
+
+# ignore js and map files
+**/*.map
+**/**/*.map
+app/**/*.js
+!app/assets/*.js
+api/**/*.js

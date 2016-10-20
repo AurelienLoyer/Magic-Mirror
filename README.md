@@ -12,7 +12,7 @@
   - [Maps]: https://console.developers.google.com/apis
   - [Openweathermap]: http://openweathermap.org/
 
-### Electron app
+<!--### Electron app
 
 ```terminal
 $ npm run electron
@@ -32,6 +32,7 @@ $ npm run electron
 $ npm watch
 $ npm build
 ```
+-->
 
 ### Widgets
 

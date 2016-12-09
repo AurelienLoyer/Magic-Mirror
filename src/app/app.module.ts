@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule,CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule,JsonpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { MessageComponent } from './message/message.component';
@@ -20,8 +20,11 @@ import { CalendarService } from './calendar/calendar.service';
 import { WeatherComponent } from './weather/weather.component';
 import { WeatherService } from './weather/weather.service';
 import { WeatherIconComponent } from './weather-icon/weather-icon.component';
-import { ApikeyService } from './apikey/apikey.service';
+import { ApiService } from './api/api.service';
 import { XmlParsePipe } from './pipes/xmlparse.pipe';
+import { TwitterComponent } from './twitter/twitter.component';
+import { TwitterService } from './twitter/twitter.service';
+import { ConfigService } from './config/config.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,8 @@ import { XmlParsePipe } from './pipes/xmlparse.pipe';
     CalendarComponent,
     WeatherComponent,
     WeatherIconComponent,
-    XmlParsePipe
+    XmlParsePipe,
+    TwitterComponent
   ],
   imports: [
     BrowserModule,
@@ -47,10 +51,12 @@ import { XmlParsePipe } from './pipes/xmlparse.pipe';
   ],
   providers: [
     CarService,
-    ApikeyService,
+    ApiService,
     VlilleService,
     WeatherService,
-    CalendarService
+    CalendarService,
+    TwitterService,
+    ConfigService
   ],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]

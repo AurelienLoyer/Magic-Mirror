@@ -30,7 +30,8 @@
     }
   ],
   "addons": [
-    "../node_modules/font-awesome/fonts/*.+(otf|eot|svg|ttf|woff|woff2)"
+    "../node_modules/font-awesome/fonts/*.+(otf|eot|svg|ttf|woff|woff2)",
+    "config.json"
   ],
   "packages": [],
   "e2e": {

@@ -1,16 +1,16 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async, inject } from '@angular/core/testing';
-import { ApikeyService } from './apikey.service';
+import { ApiService } from './api.service';
 
 describe('Service: Apikey', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ApikeyService]
+      providers: [ApiService]
     });
   });
 
-  it('should ...', inject([ApikeyService], (service: ApikeyService) => {
+  it('should ...', inject([ApiService], (service: ApiService) => {
     expect(service).toBeTruthy();
   }));
 });

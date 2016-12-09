@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
-import {ApikeyService} from './../apikey/apikey.service';
+import {ApiService} from './../api/api.service';
 
 @Injectable()
 export class WeatherService {
@@ -12,8 +12,8 @@ export class WeatherService {
   public requestUrl : String;
   public params : String = "&q=Lille,Fr&units=metric";
 
-  constructor(public http:Http,public apikeyService:ApikeyService) {
-    this.key = this.apikeyService.getKey('weather');
+  constructor(public http:Http,public apiService:ApiService) {
+    this.key = this.apiService.getKey('weather');
     this.key_url = '?APPID='+this.key;
   }
 

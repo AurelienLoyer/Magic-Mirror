@@ -2,7 +2,7 @@
 
 # personal file
 /ideas
-/src/app/apikey/apikey.service.ts
+/src/app/api/api.service.ts
 /src_old
 agenda.json
 

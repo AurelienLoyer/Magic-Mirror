@@ -1,7 +1,8 @@
 <h1>Voiture</h1>
 
 <div class="position_info">
-	<i class="fa {{positionInfoMarker}} {{positionClass}}" aria-hidden="true"></i> {{positionInfo}}
+	<i class="fa {{positionInfoMarker}} {{positionClass}}" aria-hidden="true"></i> {{positionInfo}} <br>
+	<span class="lastupdate">&nbsp;<i class="fa fa-database"></i> {{lastUpdateDate | date: 'dd/MM/yyyy'}} à {{lastUpdateDate | date: 'H:mm'}}</span>
 </div>
 
 <google-map id="gmap" api-key="{{apikey}}" [styles]="styles" show-center-marker libraries="places" [latitude]="lat" [longitude]="lng" disable-zoom disable-default-ui [zoom]="zoom">

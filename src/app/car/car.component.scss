@@ -18,6 +18,10 @@ car{
     @keyframes mover {
       50% { transform: translate(-5px,0); }
     }
+
+    .lastupdate{
+      color: #ea5829;
+    }
   }
 
   #gmap,#map{

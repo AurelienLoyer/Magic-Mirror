@@ -1,15 +1,14 @@
 import {Injectable} from '@angular/core';
 import { Http } from '@angular/http';
+import {ApiService} from './../api/api.service';
 
 @Injectable()
 export class CarService {
 
-  // Projet Github
-  // @t3kstiil3
-  // https://github.com/T3kstiil3/Domoticz_Scripts/tree/master/xee-car-data-to-domoticz-php
-  public api_url : String = "http://localhost/Perso/domoticz_scripts/xee-car-data-to-domoticz-php/xee.php?data=";
+  public api_url : String = "";
 
-  constructor(public http : Http) {
+  constructor(public http : Http,public apiService:ApiService) {
+    this.api_url = apiService.getUrl('xee');
   }
 
   getCarData(data){

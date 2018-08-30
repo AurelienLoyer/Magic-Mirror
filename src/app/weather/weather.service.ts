@@ -10,7 +10,7 @@ export class WeatherService {
   public key : String = "macle";
   public key_url : String;
   public requestUrl : String;
-  public params : String = "&q=Lille,Fr&units=metric";
+  public params : String = "&q=Montreal,Ca&units=metric";
 
   constructor(public http:Http,public apiService:ApiService) {
     this.key = this.apiService.getKey('weather');

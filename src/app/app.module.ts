@@ -6,6 +6,8 @@ import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
 import { MessageComponent } from './message/message.component';
+import { BixiComponent } from './bixi/bixi.component';
+import { BixiService } from './bixi/bixi.service';
 import { VlilleComponent } from './vlille/vlille.component';
 import { VlilleService } from './vlille/vlille.service';
 import { AddZeroPipe } from './pipes/addzero.pipe';
@@ -32,6 +34,7 @@ import { ConfigService } from './config/config.service';
     AppComponent,
     MessageComponent,
     VlilleComponent,
+    BixiComponent,
     AddZeroPipe,
     FirstletterupperPipe,
     CarComponent,
@@ -59,6 +62,7 @@ import { ConfigService } from './config/config.service';
     CarService,
     ApiService,
     VlilleService,
+    BixiService,
     WeatherService,
     CalendarService,
     TwitterService,

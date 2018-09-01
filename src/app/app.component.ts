@@ -22,7 +22,7 @@ export class AppComponent implements OnInit{
       .subscribe(res => {
         console.log(res);
         if(res.reload){
-          this.conf = res;
+          this.conf = res || 30;
           this.refreshPage(res.reload*1000);
         }
       });

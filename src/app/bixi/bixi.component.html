@@ -1,0 +1,6 @@
+<h1>Bixi</h1>
+
+<div class="item" *ngFor="let station of stations">
+  <h2>{{station.name}}</h2>
+  <h3>{{station.num_bikes_available}} <i class="fa fa-bicycle" aria-hidden="true"></i> / {{station.num_docks_available}} places </h3>
+</div>

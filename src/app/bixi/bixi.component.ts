@@ -20,6 +20,7 @@ export class BixiComponent implements OnInit{
   constructor(private bixiservice: BixiService) {
     this.stationids = [
       {name:'St-Jacques / St-Pierre',id:'39'},
+      {name:'St-Jacques / St-Laurent',id:'504'},
       {name:'Métro Mont-Royal',id:'184'}
     ];
     this.interval = 30000; // secondes

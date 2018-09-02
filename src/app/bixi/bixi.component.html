@@ -2,5 +2,7 @@
 
 <div class="item" *ngFor="let station of stations">
   <h2>{{station.name}}</h2>
-  <h3>{{station.num_bikes_available}} <i class="fa fa-bicycle" aria-hidden="true"></i> / {{station.num_docks_available}} places </h3>
+  <h3>
+    {{station.num_bikes_available}} <i class="fa fa-bicycle" aria-hidden="true"></i> <span *ngIf="station.num_ebikes_available"> / {{station.num_ebikes_available}} <i class="fa fa-bolt" aria-hidden="true"></i></span> / {{station.num_docks_available}} places
+  </h3>
 </div>

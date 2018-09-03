@@ -29,6 +29,8 @@ import { TwitterComponent } from './twitter/twitter.component';
 import { TwitterService } from './twitter/twitter.service';
 import { ConfigService } from './config/config.service';
 import { HydroquebecComponent } from './hydroquebec/hydroquebec.component';
+import { CameraComponent } from './camera/camera.component';
+
 
 @NgModule({
   declarations: [
@@ -48,7 +50,8 @@ import { HydroquebecComponent } from './hydroquebec/hydroquebec.component';
     WeatherIconComponent,
     XmlParsePipe,
     TwitterComponent,
-    HydroquebecComponent
+    HydroquebecComponent,
+    CameraComponent
   ],
   imports: [
     BrowserModule,

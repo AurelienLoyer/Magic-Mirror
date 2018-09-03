@@ -16,6 +16,10 @@ export class ApiService {
       weather : {
         key : 'YOUR_FREE_OPENWEATHER_API_KEY'
       },
+      hydroquebec : {
+        user: 'souper@gmail.com',
+        password: 'passsssword'
+      },
       xee : {
         url : 'http://RpiServerIp/domoticz_scripts/xee-car-data-to-domoticz-php/xee.php?data='
         // Projet Github

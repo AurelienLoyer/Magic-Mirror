@@ -28,6 +28,7 @@ import { XmlParsePipe } from './pipes/xmlparse.pipe';
 import { TwitterComponent } from './twitter/twitter.component';
 import { TwitterService } from './twitter/twitter.service';
 import { ConfigService } from './config/config.service';
+import { HydroquebecComponent } from './hydroquebec/hydroquebec.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ConfigService } from './config/config.service';
     WeatherComponent,
     WeatherIconComponent,
     XmlParsePipe,
-    TwitterComponent
+    TwitterComponent,
+    HydroquebecComponent
   ],
   imports: [
     BrowserModule,

@@ -34,7 +34,7 @@
     "@angular/platform-server": "^6.1.4",
     "@angular/router": "^6.1.4",
     "core-js": "^2.5.7",
-    "electron": "^1.8.8",
+    "electron": "^11.5.0",
     "font-awesome": "^4.6.3",
     "rxjs": "^6.2.2",
     "rxjs-compat": "^6.2.2",

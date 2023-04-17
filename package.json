@@ -47,7 +47,7 @@
     "@angular/language-service": "^6.1.4",
     "@types/jasmine": "^2.8.8",
     "@types/node": "^10.9.3",
-    "angular-cli": "1.0.0-beta.17",
+    "angular-cli": "1.0.0-beta.22-1",
     "codelyzer": "^4.4.4",
     "electron-prebuilt": "^1.2.6",
     "jasmine-core": "^3.2.1",
